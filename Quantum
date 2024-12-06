@@ -37,28 +37,69 @@ Potential Future Setting Options
  - Hook Specific Functions to reduce the need for external scripts
  
 --]]
-
--- Ensure the game is loaded 
-if not game:IsLoaded() then
-	game.Loaded:Wait()
-end
-
-warn("Crossplay active")
-wait(0.30)
+-- Create a new Sound object
 local sound = Instance.new("Sound")
 
 -- Set the SoundId to the provided asset ID
 sound.SoundId = "rbxassetid://6958727243"
 
 -- Set the volume to a desired level (0 to 1)
-sound.Volume = 70 -- Adjust volume between 0 (mute) and 1 (full volume)
+sound.Volume = 80 -- Adjust volume between 0 (mute) and 1 (full volume)
 
 -- Parent the Sound object to the game's SoundService
 sound.Parent = game:GetService("SoundService")
 
 -- Play the sound
 sound:Play()
+wait(0.30)
+local TweenService = game:GetService("TweenService")
 
+-- Reference to the Camera
+local camera = game.Workspace.CurrentCamera
+
+-- Define the initial and target FieldOfView values
+local initialFOV = 70
+local zoomedFOV = 53
+
+-- Define the TweenInfo for zooming in
+local tweenInfoIn = TweenInfo.new(
+    2, -- Time (in seconds)
+    Enum.EasingStyle.Sine, -- Easing style
+    Enum.EasingDirection.Out, -- Easing direction
+    0, -- Repeat count (0 means no repeat)
+    false, -- Reverses the tween after completion
+    0 -- Delay time before the tween starts
+)
+
+-- Define the TweenInfo for zooming out
+local tweenInfoOut = TweenInfo.new(
+    2, -- Time (in seconds)
+    Enum.EasingStyle.Sine, -- Easing style
+    Enum.EasingDirection.In, -- Easing direction
+    0, -- Repeat count (0 means no repeat)
+    false, -- Reverses the tween after completion
+    0 -- Delay time before the tween starts
+)
+
+-- Create the zoom-in tween
+local zoomInTween = TweenService:Create(camera, tweenInfoIn, {FieldOfView = zoomedFOV})
+
+-- Create the zoom-out tween
+local zoomOutTween = TweenService:Create(camera, tweenInfoOut, {FieldOfView = initialFOV})
+
+-- Play the zoom-in tween and then the zoom-out tween
+zoomInTween:Play()
+zoomInTween.Completed:Connect(function()
+    zoomOutTween:Play()
+end)
+
+
+wait(1.92)
+
+-- Ensure the game is loaded 
+if not game:IsLoaded() then
+	game.Loaded:Wait()
+end
 
 -- Check License Tier
 local Pro = true -- We're open sourced now!
