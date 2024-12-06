@@ -43,6 +43,23 @@ if not game:IsLoaded() then
 	game.Loaded:Wait()
 end
 
+warn("Crossplay active")
+wait(0.30)
+local sound = Instance.new("Sound")
+
+-- Set the SoundId to the provided asset ID
+sound.SoundId = "rbxassetid://6958727243"
+
+-- Set the volume to a desired level (0 to 1)
+sound.Volume = 70 -- Adjust volume between 0 (mute) and 1 (full volume)
+
+-- Parent the Sound object to the game's SoundService
+sound.Parent = game:GetService("SoundService")
+
+-- Play the sound
+sound:Play()
+
+
 -- Check License Tier
 local Pro = true -- We're open sourced now!
 
