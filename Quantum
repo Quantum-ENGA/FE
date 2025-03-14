@@ -147,7 +147,7 @@ local oldVolume = gameSettings.MasterVolume
 
 -- Configurable Core Values
 local siriusValues = {
-	siriusVersion = "1.28",
+	siriusVersion = "1.30",
 	siriusName = "Quantum sirius",
 	releaseType = "Stable",
 	siriusFolder = "Sirius Quantum UI",
