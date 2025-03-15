@@ -147,7 +147,7 @@ local oldVolume = gameSettings.MasterVolume
 
 -- Configurable Core Values
 local siriusValues = {
-	siriusVersion = "1.30",
+	siriusVersion = "2.5",
 	siriusName = "Quantum sirius",
 	releaseType = "Stable",
 	siriusFolder = "Sirius Quantum UI",
@@ -4548,6 +4548,7 @@ end)
 
 for i = 1, 1 do
 	queueNotification("Welcome","Welcome to Quantum!", 4384400106)
+	queueNotification("Spring!","Enjoy the spring!", 4384400106)
 end
 
 while task.wait(1) do
