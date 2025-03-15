@@ -59,7 +59,7 @@ local camera = game.Workspace.CurrentCamera
 
 -- Define the initial and target FieldOfView values
 local initialFOV = 70
-local zoomedFOV = 53
+local zoomedFOV = 50
 
 -- Define the TweenInfo for zooming in
 local tweenInfoIn = TweenInfo.new(
@@ -97,12 +97,9 @@ end)
 wait(1.92)
 
 -- Ensure the game is loaded 
-if not game:IsLoaded() then
-	game.Loaded:Wait()
-end
+local Pro = true
+local Dev = false
 
--- Check License Tier
-local Pro = true -- We're open sourced now!
 
 -- Create Variables for Roblox Services
 local coreGui = game:GetService("CoreGui")
@@ -757,7 +754,7 @@ local siriusSettings = {
 				name = 'Intelligent Clipboard Interception',
 				description = 'Block your clipboard from being set and ask you before allowing it to set your clipboard.',
 				settingType = 'Boolean',
-				minimumLicense = 'Essential',
+				minimumLicense = 'Pro',
 				current = true,
 
 				id = 'intflowinterceptclip'
@@ -774,6 +771,7 @@ local siriusSettings = {
 				name = 'Log Messages',
 				description = 'Log messages sent by any player to your webhook.',
 				settingType = 'Boolean',
+                minimumLicense = 'Pro',
 				current = false,
 
 				id = 'logmsg'
