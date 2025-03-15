@@ -4549,7 +4549,7 @@ end)
 for i = 1, 1 do
 	queueNotification("Welcome","Welcome to Quantum!", 4384400106)
 queueNotification("BEWARE!","This UI is made with sirius", 4384400106)
-	queueNotification("Enjoy music while in spring!","Enjoy music! Download anything of your likes.", 4384400106)
+	queueNotification("Enjoy music while in spring!","Enjoy music! Download anything of your likes.", 4400695581)
 end
 
 while task.wait(1) do
