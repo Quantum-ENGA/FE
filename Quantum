@@ -144,7 +144,7 @@ local oldVolume = gameSettings.MasterVolume
 
 -- Configurable Core Values
 local siriusValues = {
-	siriusVersion = "2.5",
+	siriusVersion = "2.9",
 	siriusName = "Quantum sirius",
 	releaseType = "Stable",
 	siriusFolder = "Sirius Quantum UI",
@@ -206,7 +206,7 @@ local siriusValues = {
 	rawTree = "https://raw.githubusercontent.com/SiriusSoftwareLtd/Sirius/Sirius/games/",
 	neonModule = "https://raw.githubusercontent.com/shlexware/Sirius/request/library/neon.lua",
 	senseRaw = "https://raw.githubusercontent.com/shlexware/Sirius/request/library/sense/source.lua",
-	executors = {"synapse x", "script-ware", "krnl", "scriptware", "comet", "valyse", "fluxus", "electron", "hydrogen"},
+	executors = {"Xeno", "Hydrogen"},
 	disconnectTypes = { {"ban", {"ban", "perm"}}, {"network", {"internet connection", "network"}} },
 	nameGeneration = {
 		adjectives = {"Cool", "Awesome", "Epic", "Ninja", "Super", "Mystic", "Swift", "Golden", "Diamond", "Silver", "Mint", "Roblox", "Amazing"},
