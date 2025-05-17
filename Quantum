@@ -2426,18 +2426,27 @@ local function UpdateHome()
 	-- Region
 	homeContainer.Interactions.Server.Region.Value.Text = "Unable to retrieve region"
 
-	-- Player Information
-	homeContainer.Interactions.User.Avatar.Image = "https://www.roblox.com/headshot-thumbnail/image?userId="..localPlayer.UserId.."&width=420&height=420&format=png"
-	homeContainer.Interactions.User.Title.Text = localPlayer.DisplayName
-	homeContainer.Interactions.User.Subtitle.Text = localPlayer.Name
+-- Player Information
+homeContainer.Interactions.User.Avatar.Image = "https://www.roblox.com/headshot-thumbnail/image?userId="..localPlayer.UserId.."&width=420&height=420&format=png"
+homeContainer.Interactions.User.Title.Text = localPlayer.DisplayName
+homeContainer.Interactions.User.Subtitle.Text = localPlayer.Name
 
-	-- Update Executor
-	homeContainer.Interactions.Client.Title.Text = identifyexecutor()
-if table.find(siriusValues.executors, string.lower(identifyexecutor())) then
-    homeContainer.Interactions.Client.Subtitle.Text = "This executor is supported!"
-	-- Update Friends Statuses
-	checkFriends()
+-- Update Executor
+local executorName = identifyexecutor() or "Unknown"
+homeContainer.Interactions.Client.Title.Text = executorName
+
+if siriusValues and siriusValues.executors then
+    if table.find(siriusValues.executors, string.lower(executorName)) then
+        homeContainer.Interactions.Client.Subtitle.Text = "This executor is supported!"
+    else
+        homeContainer.Interactions.Client.Subtitle.Text = "This executor is unverified!"
+    end
+else
+    warn("siriusValues.executors is missing or undefined!")
 end
+
+-- Update Friends Statuses
+checkFriends()
 
 local function openHome()
 	if debounce then return end
@@ -3842,9 +3851,11 @@ local function start()
 	sortActions()
 	initialiseAntiKick()
 	checkLastVersion()
+local TimeVer
 
-while wait(0.1) do
-    smartBar.Time.Text = os.date("%H:%M")
+while wait(0.3) do
+    TimeVer = os.date("%H:%M")
+    smartBar.Time.Text = TimeVer
 end
 
 	toggle.Visible = not checkSetting("Hide Toggle Button").current
