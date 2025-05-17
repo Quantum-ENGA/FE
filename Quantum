@@ -3881,20 +3881,28 @@ local function boost()
 end
 
 local function start()
-	if siriusValues.releaseType == "Experimental" then -- Make this more secure.
-		if not Pro then localPlayer:Kick("This is an experimental release, you must be Pro to run this. \n\nUpgrade at https://sirius.menu/") return end
-	end
-	windowFocusChanged(true)
+    if siriusValues.releaseType == "Experimental" then -- Make this more secure.
+        if not Pro then
+            localPlayer:Kick("This is an experimental release, you must be Pro to run this. \n\nUpgrade at https://sirius.menu/")
+            return
+        end
+    end
+    windowFocusChanged(true)
 
-	UI.Enabled = true
+    UI.Enabled = true
 
-	assembleSettings()
-	ensureFrameProperties()
-	sortActions()
-	initialiseAntiKick()
-	checkLastVersion()
-	task.spawn(boost)
+    assembleSettings()
+    ensureFrameProperties()
+    sortActions()
+    initialiseAntiKick()
+    checkLastVersion()
+    task.spawn(boost)
+end
 
+-- Start initialization
+start()
+
+-- Keep updating the time
 while wait(0.3) do
     smartBar.Time.Text = os.date("%H:%M")
 end
