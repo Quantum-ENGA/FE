@@ -3898,19 +3898,10 @@ local function start()
     checkLastVersion()
     task.spawn(boost)
 
-    -- Start the time updater
-    task.spawn(function()
-        while wait(0.3) do
-            if smartBar and smartBar.Time then
-                smartBar.Time.Text = os.date("%H:%M")
-            else
-                warn("smartBar or smartBar.Time is missing!")
-            end
-        end
-    end)
-end
-
 start()
+while wait(0.3) do
+    smartBar.Time.Text = os.date("%H")..":"..os.date("%M")
+end
 
 	toggle.Visible = not checkSetting("Hide Toggle Button").current
 
