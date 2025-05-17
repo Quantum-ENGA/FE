@@ -3895,8 +3895,8 @@ local function start()
 	checkLastVersion()
 	task.spawn(boost)
 
-	while wait(0.3) do
-smartBar.Time.Text = os.date("%H")..":"..os.date("%M")
+while wait(0.3) do
+    smartBar.Time.Text = os.date("%H:%M")
 end
 
 	toggle.Visible = not checkSetting("Hide Toggle Button").current
