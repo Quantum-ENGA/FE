@@ -4599,24 +4599,28 @@ game.DescendantAdded:Connect(function(instance)
 end)
 
 
-while task.wait(1) do
-	if not checkSirius() then
-		if espContainer then espContainer:Destroy() end
-		undoAnonymousChanges()
-		break
-	end
-    -- Keep updating the time inside `start()`
-    task.spawn(function()
-        while wait(0.3) do
-            if smartBar and smartBar.Time then
-                smartBar.Time.Text = os.date("%H:%M")
-            else
-                warn("smartBar or smartBar.Time is missing!")
-            end
+-- Start a single background time update loop
+task.spawn(function()
+    while task.wait(0.3) do
+        if smartBar and smartBar.Time then
+            smartBar.Time.Text = os.date("%H:%M")
+        else
+            warn("smartBar or smartBar.Time is missing!")
         end
-    end)
+    end
+end)
+
+-- Core loop
+while task.wait(1) do
+    if not checkSirius() then
+        if espContainer then espContainer:Destroy() end
+        undoAnonymousChanges()
+        break
+    end
 end
-	task.spawn(UpdateHome)
+
+-- Start home update after loop exits
+task.spawn(UpdateHome)
 
 	if getconnections then
 		for _, connection in getconnections(localPlayer.Idled) do
