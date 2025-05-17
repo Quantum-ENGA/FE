@@ -44,7 +44,7 @@ local sound = Instance.new("Sound")
 sound.SoundId = "rbxassetid://1841180233"
 
 -- Set the volume to a desired level (0 to 1)
-sound.Volume = 0.5 -- Adjust volume between 0 (mute) and 1 (full volume)
+sound.Volume = 0.7 -- Adjust volume between 0 (mute) and 1 (full volume)
 
 -- Parent the Sound object to the game's SoundService
 sound.Parent = game:GetService("SoundService")
@@ -3847,7 +3847,9 @@ local function start()
 	initialiseAntiKick()
 	checkLastVersion()
 
-	smartBar.Time.Text = os.date("%H")..":"..os.date("%M")
+	while wait(0.1) do
+    smartBar.Time.Text = os.date("%H:%M")
+end
 
 	toggle.Visible = not checkSetting("Hide Toggle Button").current
 
