@@ -44,7 +44,7 @@ local sound = Instance.new("Sound")
 sound.SoundId = "rbxassetid://1841180233"
 
 -- Set the volume to a desired level (0 to 1)
-sound.Volume = 0.8 -- Adjust volume between 0 (mute) and 1 (full volume)
+sound.Volume = 0.5 -- Adjust volume between 0 (mute) and 1 (full volume)
 
 -- Parent the Sound object to the game's SoundService
 sound.Parent = game:GetService("SoundService")
@@ -2433,9 +2433,11 @@ local function UpdateHome()
 
 	-- Update Executor
 	homeContainer.Interactions.Client.Title.Text = identifyexecutor()
-	if not table.find(siriusValues.executors, string.lower(identifyexecutor())) then
-		homeContainer.Interactions.Client.Subtitle.Text = "This executor is not verified as supported."
-	end
+if not table.find(siriusValues.executors, string.lower(identifyexecutor())) then
+    homeContainer.Interactions.Client.Subtitle.Text = "This executor is not verified as supported."
+else
+    homeContainer.Interactions.Client.Subtitle.Text = "Using verified version of Quantum!"
+end
 
 	-- Update Friends Statuses
 	checkFriends()
