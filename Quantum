@@ -3847,7 +3847,7 @@ local function start()
 	initialiseAntiKick()
 	checkLastVersion()
 
-	while wait(0.1) do
+while wait(0.1) do
     smartBar.Time.Text = os.date("%H:%M")
 end
 
