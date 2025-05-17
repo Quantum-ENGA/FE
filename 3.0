@@ -44,7 +44,7 @@ local sound = Instance.new("Sound")
 sound.SoundId = "rbxassetid://1841180233"
 
 -- Set the volume to a desired level (0 to 1)
-sound.Volume = 80 -- Adjust volume between 0 (mute) and 1 (full volume)
+sound.Volume = 0.5 -- Adjust volume between 0 (mute) and 1 (full volume)
 
 -- Parent the Sound object to the game's SoundService
 sound.Parent = game:GetService("SoundService")
