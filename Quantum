@@ -187,10 +187,10 @@ local oldVolume = gameSettings.MasterVolume
 
 -- Configurable Core Values
 local siriusValues = {
-	siriusVersion = "1.26",
-	siriusName = "Sirius",
+	siriusVersion = "3.0",
+	siriusName = "Quantum Sirius",
 	releaseType = "Stable",
-	siriusFolder = "Sirius",
+	siriusFolder = "Sirius Quantum UI",
 	settingsFile = "settings.srs",
 	interfaceAsset = 14183548964,
 	cdn = "https://cdn.sirius.menu/SIRIUS-SCRIPT-CORE-ASSETS/",
