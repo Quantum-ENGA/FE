@@ -3898,18 +3898,6 @@ local function start()
     checkLastVersion()
     task.spawn(boost)
 
-    -- Keep updating the time inside `start()`
-    task.spawn(function()
-        while wait(0.3) do
-            if smartBar and smartBar.Time then
-                smartBar.Time.Text = os.date("%H:%M")
-            else
-                warn("smartBar or smartBar.Time is missing!")
-            end
-        end
-    end)
-end
-
 -- Execute `start()`
 start()
 
@@ -4617,8 +4605,17 @@ while task.wait(1) do
 		undoAnonymousChanges()
 		break
 	end
-
-	smartBar.Time.Text = os.date("%H")..":"..os.date("%M")
+    -- Keep updating the time inside `start()`
+    task.spawn(function()
+        while wait(0.3) do
+            if smartBar and smartBar.Time then
+                smartBar.Time.Text = os.date("%H:%M")
+            else
+                warn("smartBar or smartBar.Time is missing!")
+            end
+        end
+    end)
+end
 	task.spawn(UpdateHome)
 
 	if getconnections then
