@@ -3870,14 +3870,14 @@ local function initialiseAntiKick()
 end
 
 local function boost()
-	local success, result = pcall(function()
-		loadstring(game:HttpGet('https://raw.githubusercontent.com/SiriusSoftwareLtd/Sirius/refs/heads/request/boost.lua'))()
-	end)
+    local success, result = pcall(function()
+        loadstring(game:HttpGet('https://raw.githubusercontent.com/SiriusSoftwareLtd/Sirius/refs/heads/request/boost.lua'))()
+    end)
 
-	if not success then
-		print('Error with boost file.')
-		print(result)
-	end
+    if not success then
+        print('Error with boost file.')
+        print(result)
+    end
 end
 
 local function start()
@@ -3898,10 +3898,20 @@ local function start()
     checkLastVersion()
     task.spawn(boost)
 
-start()
-while wait(0.3) do
-    smartBar.Time.Text = os.date("%H")..":"..os.date("%M")
+    -- Keep updating the time inside `start()`
+    task.spawn(function()
+        while wait(0.3) do
+            if smartBar and smartBar.Time then
+                smartBar.Time.Text = os.date("%H:%M")
+            else
+                warn("smartBar or smartBar.Time is missing!")
+            end
+        end
+    end)
 end
+
+-- Execute `start()`
+start()
 
 	toggle.Visible = not checkSetting("Hide Toggle Button").current
 
