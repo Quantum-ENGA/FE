@@ -2433,12 +2433,8 @@ local function UpdateHome()
 
 	-- Update Executor
 	homeContainer.Interactions.Client.Title.Text = identifyexecutor()
-if not table.find(siriusValues.executors, string.lower(identifyexecutor())) then
-    homeContainer.Interactions.Client.Subtitle.Text = "This executor is not verified as supported."
-else
-    homeContainer.Interactions.Client.Subtitle.Text = "Using verified version of Quantum!"
-end
-
+if table.find(siriusValues.executors, string.lower(identifyexecutor())) then
+    homeContainer.Interactions.Client.Subtitle.Text = "This executor is supported!"
 	-- Update Friends Statuses
 	checkFriends()
 end
