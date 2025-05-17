@@ -3897,12 +3897,20 @@ local function start()
     initialiseAntiKick()
     checkLastVersion()
     task.spawn(boost)
+
+    -- Start the time updater
+    task.spawn(function()
+        while wait(0.3) do
+            if smartBar and smartBar.Time then
+                smartBar.Time.Text = os.date("%H:%M")
+            else
+                warn("smartBar or smartBar.Time is missing!")
+            end
+        end
+    end)
 end
 
--- Keep updating the time
-while wait(0.3) do
-    smartBar.Time.Text = os.date("%H:%M")
-end
+start()
 
 	toggle.Visible = not checkSetting("Hide Toggle Button").current
 
