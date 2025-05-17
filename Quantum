@@ -3899,9 +3899,6 @@ local function start()
     task.spawn(boost)
 end
 
--- Start initialization
-start()
-
 -- Keep updating the time
 while wait(0.3) do
     smartBar.Time.Text = os.date("%H:%M")
