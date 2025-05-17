@@ -2,7 +2,7 @@
 
 Sirius
 
-© 2024 Sirius 
+© 2025 Sirius 
 All Rights Reserved.
 
 --]]
@@ -144,7 +144,7 @@ local oldVolume = gameSettings.MasterVolume
 
 -- Configurable Core Values
 local siriusValues = {
-	siriusVersion = "2.9",
+	siriusVersion = "3.0",
 	siriusName = "Quantum sirius",
 	releaseType = "Stable",
 	siriusFolder = "Sirius Quantum UI",
