@@ -1,9 +1,20 @@
-print("Quantum executed.")
-print("Getting packages...")
-warn("http request sent!")
-wait(4.73)
-warn("Attaching...")
-print("Quantum should now appear!")
+local IsError = true -- Change to false if you want normal execution
+
+if IsError then
+    print("Quantum executed.")
+    print("Getting packages...")
+    warn("http request sent!")
+    wait(4.73)
+    warn("Attaching...")
+    error("Quantum is safely locked because the api is either down or there are upcoming banwaves.") -- Stops execution if true
+else
+    print("Quantum executed.")
+    print("Getting packages...")
+    warn("http request sent!")
+    wait(4.73)
+    warn("Attaching...")
+    print("Quantum should now appear!")
+end
 --[[
 
 Sirius
