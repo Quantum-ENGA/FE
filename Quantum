@@ -1,4 +1,4 @@
-local IsError = true -- Change to false if you want normal execution
+local IsError = false -- Change to false if you want normal execution
 
 if IsError then
     print("Quantum executed.")
