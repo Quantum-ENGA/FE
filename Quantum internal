@@ -1,6 +1,7 @@
--- Synapse X Remake made by @chillz_azy (yt)
+-- Synapse X Remake made by @chillz_azy (yt) credits to him!
+-- Quantum external now opensourced for you all :3 You're not considered a skid btw
 
-local synversion = "2.45.FMG"
+local synversion = "2.9"
 
 -- this shit function makes my script fucked
 --[[pcall(function()
@@ -30,16 +31,6 @@ G2L["2"]["Name"] = [[FloatingIcon]];
 G2L["2"].Visible = false
 G2L["2"]["Position"] = UDim2.new(0.7019911956787109, 0, 0.7092568278312683, 0);
 
--- StarterGui.SynapseX.FloatingIcon. 
-G2L["3"] = Instance.new("ImageLabel", G2L["2"]);
-G2L["3"]["BorderSizePixel"] = 0;
-G2L["3"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["3"]["Image"] = [[http://www.roblox.com/asset/?id=9483813933]];
-G2L["3"]["Size"] = UDim2.new(0, 23, 0, 26);
-G2L["3"]["Name"] = [[ ]];
-G2L["3"]["BackgroundTransparency"] = 1;
-G2L["3"]["Position"] = UDim2.new(0.16640418767929077, 0, 0.13268542289733887, 0);
-
 -- StarterGui.SynapseX.FloatingIcon.UICorner
 G2L["4"] = Instance.new("UICorner", G2L["2"]);
 G2L["4"]["CornerRadius"] = UDim.new(1, 8);
@@ -60,14 +51,6 @@ G2L["6"]["Position"] = UDim2.new(0, 19, 0, 23);
 G2L["6"]["Name"] = [[Main]];
 
 -- StarterGui.SynapseX.Main.Icon
-G2L["7"] = Instance.new("ImageLabel", G2L["6"]);
-G2L["7"]["BorderSizePixel"] = 0;
-G2L["7"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["7"]["Image"] = [[http://www.roblox.com/asset/?id=9483813933]];
-G2L["7"]["Size"] = UDim2.new(0, 23, 0, 26);
-G2L["7"]["Name"] = [[Icon]];
-G2L["7"]["BackgroundTransparency"] = 1;
-G2L["7"]["Position"] = UDim2.new(0, 5, 0, 0);
 
 -- StarterGui.SynapseX.Main.Background
 G2L["8"] = Instance.new("ImageLabel", G2L["6"]);
