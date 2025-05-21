@@ -287,7 +287,7 @@ G2L["1e"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]
 G2L["1e"]["TextSize"] = 15;
 G2L["1e"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
 G2L["1e"]["Size"] = UDim2.new(0, 646, 0, 27);
-G2L["1e"]["Text"] = "Synapse X - "..synversion;
+G2L["1e"]["Text"] = "Quantum - "..synversion;
 G2L["1e"]["Name"] = [[TitleSynapse]];
 G2L["1e"]["BackgroundTransparency"] = 1;
 
@@ -781,6 +781,8 @@ G2L["53"]["BackgroundColor3"] = Color3.fromRGB(51, 51, 51);
 G2L["53"]["Size"] = UDim2.new(0, 353, 0, 185);
 G2L["53"]["Position"] = UDim2.new(0, 0, 1, 0);
 G2L["53"]["Name"] = [[MainFrame]];
+local UICorner = Instance.new("UICorner", G2L["53"])
+UICorner.CornerRadius = UDim.new(0, 10) -- Adjust the value for more or less rounding
 
 -- StarterGui.SynapseX.ScriptLog.MainFrame.ANS9DZNASD8Z7NAS987NAFA
 G2L["54"] = Instance.new("ScrollingFrame", G2L["53"]);
@@ -3040,7 +3042,9 @@ local function C_49()
 	end)
 	buttons.Execute.MouseButton1Up:Connect(function()
 		if not injected then
-			title.Text = "Synapse X - "..synversion.." (not injected! press attach)"
+			title.Text = "Quantum - "..synversion.." (not injected! press attach)"
+                        task.wait(0.45)
+                        title.Text = "Quantum - "..synversion"
 		elseif injected == true then
 
 			local textbox = GetTextbox()
@@ -3050,22 +3054,22 @@ local function C_49()
 	end)
 	buttons.Attach.MouseButton1Up:Connect(function()
 		if not injected then
-			title.Text = "Synapse X - "..synversion.." (checking...)"
+			title.Text = "Quantum - "..synversion.." (checking...)"
 			task.wait(0.8)
-			title.Text = "Synapse X - "..synversion.." (injecting...)"
+			title.Text = "Quantum - "..synversion.." (injecting...)"
 			task.wait(2.3)
-			title.Text = "Synapse X - "..synversion.." (checking whitelist...)"
+			title.Text = "Quantum - "..synversion.." (checking whitelist...)"
 			task.wait(1.6)
-			title.Text = "Synapse X - "..synversion.." (scanning...)"
+			title.Text = "Quantum- "..synversion.." (scanning...)"
 			task.wait(1.3)
-			title.Text = "Synapse X - "..synversion.." (ready!)"
+			title.Text = "Quantum - "..synversion.." (ready!)"
 			injected = true
 			task.wait(1)
-			title.Text = "Synapse X - "..synversion
+			title.Text = "Quantum - "..synversion
 		else
-			title.Text = "Synapse X - "..synversion.." (already injected!)"
+			title.Text = "Quantum - "..synversion.." (already injected!)"
 			task.wait(1)
-			title.Text = "Synapse X - "..synversion
+			title.Text = "Quantum - "..synversion
 		end
 	end)
 
